@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/Promise.js"></script>
+    <script>
+    
+        const promise = new Promise((resolve, reject) => {
+            throw new Error('test error')
+            /* setTimeout(() => {
+                if (Date.now() % 2 === 0) {
+                    resolve('偶数，执行成功的数据')
+                } else {
+                    reject('奇数，执行失败的数据')
+                }
+            }, 1000) */
+        })    
+
+        promise.then(
+            (value) => {
+                console.log('成功的回调', value)
+            },
+            (reason) => {
+                console.log('失败的回调', reason)
+            }
+        )
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

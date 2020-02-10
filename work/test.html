@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/Promise.js"></script>
+    <!-- <script>
+    
+        new Promise((resolve, reject) => {
+            resolve('1')
+        }).then(
+            value => {
+                console.log('onResolved()1', value)
+                throw new Error('message')
+            }
+        ).then(
+            value => {
+                console.log('onResolved()2')
+            }
+        ).then(
+            value => {
+                console.log('onResolved()3')
+            }
+        ).catch(
+            reason => {
+                console.log('catch()', reason)
+            }
+        )
+
+    </script> -->
+    <script>
+        const p1 = Promise.resolve(4)
+        const p2 = Promise.resolve(Promise.resolve(5))
+        const p3 = Promise.reject(6)
+      
+        Promise.all([p1, p2, 1]).then(
+          values => {
+            console.log('onResolved()', values)
+          },
+          reason => {
+            console.log('onRejected()', reason)
+          }
+        )
+
+        /* Promise.race([p1, p3]).then(
+            value => console.log('onResolved()', value),
+            reason => console.log('onRejected()', reason)
+        ) */
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
